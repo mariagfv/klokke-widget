@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Digital Klokke Widget</title>
+<style>
+  body {
+    margin: 0;
+    background: #f9f9f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  #clock {
+    font-size: 5rem;
+    color: #333;
+    background: white;
+    padding: 20px 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    user-select: none;
+  }
+</style>
+</head>
+<body>
+  <div id="clock">--:--</div>
+
+<script>
+  function updateClock() {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2,'0');
+    const minutes = now.getMinutes().toString().padStart(2,'0');
+    document.getElementById('clock').textContent = `${hours}:${minutes}`;
+  }
+
+  updateClock(); // oppdater straks ved lasting
+  setInterval(updateClock, 1000 * 60); // oppdater hvert minutt
+</script>
+</body>
+</html>
